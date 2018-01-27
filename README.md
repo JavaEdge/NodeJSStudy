@@ -57,7 +57,72 @@ console.log('Hello, world!');
 ```
 
 ```javascript
->node helloWorld.js
+>node helloWorld
 Hello, world!
 ```
 
+## NodeJS的全局对象
+对象名称 | 说明
+----- | -----
+console | 提供关于console打印的功能
+exports | 提供关于模块的功能
+process | 提供关于程序有的功能
+
+
+### console 对象
+方法 | 说明
+----- | -----
+log |
+info |
+warn |
+error |
+dir |
+time |
+timeEnd |
+trace |
+assert |
+Console |
+
+### process 对象
+属性名 | 说明
+----- | -----
+argv | 参数
+env | 系统环境
+version | NodeJS版本
+versions | NodeJS版本和依赖模块的版本
+arch | 系统的处理器
+platform | 系统平台
+
+process对象还有stdout，stdin,stderr等基本输出流方法。
+还有kill, exit等方法。  
+process对象是一个EventEmitter实例。
+如果运行process.exit(), 可以用process.on('exit', function(err) {
+    console.log(err);
+})获取。
+
+process.on('uncaughtException',()=>{}) 是截取异常的好方法吗？  
+当发生error时怎么处理？
+
+### exports 对象
+exports用来定义被引入的方法，require方法来引用函数。
+module.js
+```javascript
+    exports.add = (a, b) => {
+        return a + b;
+    };
+
+    exports.mod = (a, b) => {
+        return a % b;
+    };
+```
+
+main.js
+```javascript
+    var module = require('./module.js');
+
+    var sum = module.add(1, 3);
+    console.log(sum);
+
+    var mod = module.mod(7, 2);
+    console.log(mod);
+```
