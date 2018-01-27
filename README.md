@@ -86,7 +86,7 @@ Console |
 ### process 对象
 属性名 | 说明
 ----- | -----
-argv | 参数
+argv | 参数
 env | 系统环境
 version | NodeJS版本
 versions | NodeJS版本和依赖模块的版本
@@ -96,7 +96,7 @@ platform | 系统平台
 process对象还有stdout，stdin,stderr等基本输出流方法。
 还有kill, exit等方法。  
 process对象是一个EventEmitter实例。
-如果运行process.exit(), 可以用process.on('exit', function(err) {
+如果运行process.exit(), 可以用process.on('exit', function(err) {
     console.log(err);
 })获取。
 
@@ -145,8 +145,8 @@ http[s] | 有关http[s]模块的服务
 ```javascript 
     >npm install -g XXX
 ```
--g 选项可是全局选项，可以在任意地方使用这个模块。如果不设置，只能是在当前目录使用。  
---save 选项把当前模块的安装加入到package.json。  
+-g 选项可是全局选项，可以在任意地方使用这个模块。如果不设置，只能是在当前目录使用。  
+--save 选项把当前模块的安装加入到package.json。  
 
 有关页面的模块有ejs,jade  
 让服务稳定运行的有supervisor, forever  
