@@ -149,8 +149,8 @@ http[s] | 有关http[s]模块的服务
 --save 选项把当前模块的安装加入到package.json。  
 
 有关页面的模块有ejs,jade  
-让服务稳定运行的有supervisor, forever  
-express模块提供http的功能，而且提供很多功能  
+让服务稳定运行的有supervisor, forever  
+express模块提供http的功能，而且提供很多功能  
 socket.io包提供socket功能
 测试模块有Mocha, Jasmine, Jest等
 # 面试题
