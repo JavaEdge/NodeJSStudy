@@ -11,7 +11,7 @@ NodeJS基于事件机制，异步执行。
 
 ## 事件机制
 <p align="left">
-    <img src="resource/img/EventLoop.jpg" width="350px">
+    <img src="resource/img/EventLoop.jpg" >
 </p>
 Node.js 是单进程单线程应用程序，但是通过事件和回调支持并发，所以性能非常高。
 
@@ -27,7 +27,7 @@ Node.js 单线程类似进入一个while(true)的事件循环，直到没有事�
 事件机制，适于大规模系统 | 单线程运行，发生问题，可能会影响这个系统
 使用Javascript - 很多多人都了解JS  | 也会有一些JS自身的bug
 使用Gogoole用c++开发的V8 JS引擎 | 速度不比c/c++开发的服务快
-有很多开源的NPM模块使用 | 
+有很多开源的NPM模块使用 | 开源的模块有些有恶意性代码
 
 ### 现有的JS引擎
 企业或团体 | 引擎 
@@ -126,3 +126,29 @@ main.js
     var mod = module.mod(7, 2);
     console.log(mod);
 ```
+
+## 基本内部模块
+模块名 | 作用
+----- | -----
+os | 获取系统信息
+url | url字符串与url对象相互转换。组合url字符串
+query strings | url字符串与url对象相互转换，url模块已有的功能，使用不多
+util | 各种工具包模块
+crypto | Hashing, 加密、解密功能
+fs | 文件读写
+http[s] | 有关http[s]模块的服务
+
+还有path, tls/ssl, cluster, debugger, dns等包。  
+可以访问[https://nodejs.org/dist/latest-v8.x/docs/api/](https://nodejs.org/dist/latest-v8.x/docs/api/) 最新的稳定版本的api。
+## 外部模块
+使用外部模块的时候需要安装 
+```javascript 
+    >npm install -g XXX
+```
+-g 选项可是全局选项，可以在任意地方使用这个模块。如果不设置，只能是在当前目录使用。  
+--save 选项把当前模块的安装加入到package.json。  
+
+有关页面的模块有ejs,jade  
+让服务稳定运行的有supervisor, forever  
+express模块提供http的功能，而且提供很多功能  
+socket.io包提供socket功能
