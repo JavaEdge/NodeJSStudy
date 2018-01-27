@@ -9,6 +9,17 @@ NodeJS是一个平台， 提供javascript运行环境。
 NodeJS基于事件机制，异步执行。
 可用于高并发开发。
 
+## 事件机制
+<p align="left">
+    <img src="resource/img/EventLoop.jpg" width="350px">
+</p>
+Node.js 是单进程单线程应用程序，但是通过事件和回调支持并发，所以性能非常高。
+
+Node.js 的每一个 API 都是异步的，并作为一个独立线程运行，使用异步函数调用，并处理并发。
+
+Node.js 基本上所有的事件机制都是用设计模式中观察者模式实现。
+
+Node.js 单线程类似进入一个while(true)的事件循环，直到没有事件观察者退出，每个异步事件都生成一个事件观察者，如果有事件发生就调用该回调函数.
 
 ## 优点 & 缺点
 优点 | 缺点
@@ -46,7 +57,72 @@ console.log('Hello, world!');
 ```
 
 ```javascript
->node helloWorld.js
+>node helloWorld
 Hello, world!
 ```
 
+## NodeJS的全局对象
+对象名称 | 说明
+----- | -----
+console | 提供关于console打印的功能
+exports | 提供关于模块的功能
+process | 提供关于程序有的功能
+
+
+### console 对象
+方法 | 说明
+----- | -----
+log |
+info |
+warn |
+error |
+dir |
+time |
+timeEnd |
+trace |
+assert |
+Console |
+
+### process 对象
+属性名 | 说明
+----- | -----
+argv | 参数
+env | 系统环境
+version | NodeJS版本
+versions | NodeJS版本和依赖模块的版本
+arch | 系统的处理器
+platform | 系统平台
+
+process对象还有stdout，stdin,stderr等基本输出流方法。
+还有kill, exit等方法。  
+process对象是一个EventEmitter实例。
+如果运行process.exit(), 可以用process.on('exit', function(err) {
+    console.log(err);
+})获取。
+
+process.on('uncaughtException',()=>{}) 是截取异常的好方法吗？  
+当发生error时怎么处理？
+
+### exports 对象
+exports用来定义被引入的方法，require方法来引用函数。
+module.js
+```javascript
+    exports.add = (a, b) => {
+        return a + b;
+    };
+
+    exports.mod = (a, b) => {
+        return a % b;
+    };
+```
+
+main.js
+```javascript
+    var module = require('./module.js');
+
+    var sum = module.add(1, 3);
+    console.log(sum);
+
+    var mod = module.mod(7, 2);
+    console.log(mod);
+```
