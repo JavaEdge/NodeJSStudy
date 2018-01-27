@@ -104,7 +104,7 @@ process.on('uncaughtException',()=>{}) 是截取异常的好方法吗？
 当发生error时怎么处理？
 
 ### exports 对象
-exports用来定义被引入的方法，require方法来引用函数。
+exports用来定义被引入的方法，require方法来引用函数。  
 module.js
 ```javascript
     exports.add = (a, b) => {
@@ -152,3 +152,7 @@ http[s] | 有关http[s]模块的服务
 让服务稳定运行的有supervisor, forever  
 express模块提供http的功能，而且提供很多功能  
 socket.io包提供socket功能
+测试模块有Mocha, Jasmine, Jest等
+# 面试题
+## libuv是什么？
+libuv强制使用异步的，事件驱动的编程风格。它的核心工作是提供一个event-loop，还有基于I/O和其它事件通知的回调函数。libuv还提供了一些核心工具，例如定时器，非阻塞的网络支持，异步文件系统访问，子进程等。
