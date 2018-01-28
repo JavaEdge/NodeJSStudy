@@ -67,6 +67,7 @@ Hello, world!
 console | 提供关于console打印的功能
 exports | 提供关于模块的功能
 process | 提供关于程序有的功能
+time | setTimeout, setImmediate, setInterval, clearTimeout, clearImmediate, clearInterval
 
 
 ### console 对象
